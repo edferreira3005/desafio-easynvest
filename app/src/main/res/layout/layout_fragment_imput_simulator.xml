@@ -7,13 +7,13 @@
     <ScrollView
         android:id="@+id/scrollViewImput"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintTop_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -25,9 +25,9 @@
                 android:layout_margin="20dp"
                 android:gravity="center"
                 android:text="@string/quando_aplicar"
-                app:layout_constraintEnd_toEndOf="@id/scrollViewImput"
-                app:layout_constraintStart_toStartOf="@id/scrollViewImput"
-                app:layout_constraintTop_toTopOf="@id/scrollViewImput" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/etValorAplicar"
@@ -36,11 +36,12 @@
                 android:layout_margin="20dp"
                 android:gravity="center"
                 android:hint="@string/rs"
+                android:autofillHints="@string/rs"
                 android:inputType="numberDecimal"
                 android:textAlignment="center"
                 android:textSize="22sp"
-                app:layout_constraintEnd_toEndOf="@id/scrollViewImput"
-                app:layout_constraintStart_toStartOf="@id/scrollViewImput"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvQuantoAplicar" />
 
             <TextView
@@ -50,8 +51,8 @@
                 android:layout_margin="20dp"
                 android:gravity="center"
                 android:text="@string/data_vencimento"
-                app:layout_constraintEnd_toEndOf="@id/scrollViewImput"
-                app:layout_constraintStart_toStartOf="@id/scrollViewImput"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/etValorAplicar" />
 
             <EditText
@@ -63,9 +64,10 @@
                 android:hint="@string/data"
                 android:inputType="numberDecimal"
                 android:textAlignment="center"
+                android:autofillHints="@string/data"
                 android:textSize="22sp"
-                app:layout_constraintEnd_toEndOf="@id/scrollViewImput"
-                app:layout_constraintStart_toStartOf="@id/scrollViewImput"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvVencimento" />
 
             <TextView
@@ -75,8 +77,8 @@
                 android:layout_margin="20dp"
                 android:gravity="center"
                 android:text="@string/quando_aplicar"
-                app:layout_constraintEnd_toEndOf="@id/scrollViewImput"
-                app:layout_constraintStart_toStartOf="@id/scrollViewImput"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/etDataVencimento" />
 
             <EditText
@@ -87,20 +89,26 @@
                 android:gravity="center"
                 android:hint="@string/porcent"
                 android:inputType="numberDecimal"
+                android:autofillHints="@string/porcent"
                 android:textAlignment="center"
                 android:textSize="22sp"
-                app:layout_constraintEnd_toEndOf="@id/scrollViewImput"
-                app:layout_constraintStart_toStartOf="@id/scrollViewImput"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvPercentualCDI" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="@id/scrollViewImput"
-                app:layout_constraintStart_toStartOf="@id/scrollViewImput"
-                app:layout_constraintTop_toBottomOf="@id/etPercentualCDI" />
-
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/btnSimular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAllCaps="false"
+        android:text="@string/simular"
+        android:textColor="@android:color/white"
+        android:layout_margin="20dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
