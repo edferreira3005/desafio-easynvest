@@ -337,6 +337,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:textAllCaps="false"
+        android:background="@drawable/easy_btn"
         android:textColor="@android:color/white"
         android:text="@string/sumular_novamente"
         android:layout_margin="20dp"/>

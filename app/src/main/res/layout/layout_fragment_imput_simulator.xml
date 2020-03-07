@@ -108,6 +108,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:textAllCaps="false"
         android:text="@string/simular"
+        android:background="@drawable/easy_btn"
         android:textColor="@android:color/white"
         android:layout_margin="20dp"/>
 
