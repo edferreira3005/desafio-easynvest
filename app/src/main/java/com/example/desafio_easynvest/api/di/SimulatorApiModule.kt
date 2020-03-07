@@ -13,11 +13,13 @@ val BASE_URL = "https://api-simulator-calc.easynvest.com.br"
 
 val module = module {
     single(named("Repository")) { SimulatorRepository() }
-    factory(named("Api")) { Retrofit.Builder()
+
+    single(named("Api")) { Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .build()
         .create(SimulatorApi::class.java) }
+
     single(named("Service")) { SimulatorService() }
 }

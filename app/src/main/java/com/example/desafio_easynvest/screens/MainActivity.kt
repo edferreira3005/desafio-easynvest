@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import com.example.desafio_easynvest.R
+import com.example.desafio_easynvest.model.ResponseSimulator
 import com.example.desafio_easynvest.screens.imputsimulator.FragmentInputSimulator
 import com.example.desafio_easynvest.screens.simulatorresult.FragmentSimulatorResult
 import com.example.desafio_easynvest.utils.Constants
@@ -48,12 +49,17 @@ class MainActivity : AppCompatActivity(), FragmentSimulatorResult.OnClickSimulat
             .commit()
     }
 
-    private fun openSimulatorResult() {
+    private fun openSimulatorResult(responseSimulator: ResponseSimulator) {
+        val bundle = Bundle()
+        val fragment = FragmentSimulatorResult()
         removeFragments()
+
+        bundle.putSerializable("response",responseSimulator)
+        fragment.arguments = bundle
 
         supportFragmentManager
             .beginTransaction()
-            .add(R.id.frame, FragmentSimulatorResult(), Constants.TAG_SIMULATOR_RESULT)
+            .add(R.id.frame, fragment, Constants.TAG_SIMULATOR_RESULT)
             .disallowAddToBackStack()
             .setCustomAnimations(R.anim.slide_from_right,R.anim.slide_to_left)
             .commit()
@@ -70,7 +76,7 @@ class MainActivity : AppCompatActivity(), FragmentSimulatorResult.OnClickSimulat
         openImputSimulator()
     }
 
-    override fun onClickSimulate() {
-        openSimulatorResult()
+    override fun onClickSimulate(responseSimulator: ResponseSimulator) {
+        openSimulatorResult(responseSimulator)
     }
 }
