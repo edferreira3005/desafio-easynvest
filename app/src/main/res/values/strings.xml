@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">desafio-easynvest</string>
+    <string name="quando_aplicar">Quanto voce gostaria de aplicar? *</string>
+    <string name="rs">R$</string>
+    <string name="data_vencimento">Qual a data de vencimento do investimento? *</string>
+    <string name="data">dia/mes/ano</string>
+    <string name="porcent">100%</string>
 </resources>
