@@ -1,3 +1,35 @@
 <resources>
     <string name="app_name">desafio-easynvest</string>
+    <string name="quando_aplicar">Quanto voce gostaria de aplicar? *</string>
+    <string name="rs">R$</string>
+    <string name="data_vencimento">Qual a data de vencimento do investimento? *</string>
+    <string name="data">dia/mes/ano</string>
+    <string name="porcent">100%</string>
+    <string name="resultado">Resultado da Simulacao</string>
+    <string name="val_result">R$ 1.088,69</string>
+    <string name="rendimento_total">Rendimento total de <font color="#FFFFFF">R$ 89,00</font></string>
+    <string name="aplicado_inicial">Valor aplicado inicialmente</string>
+    <string name="val_valor_inicial">R$ 1.000,00</string>
+    <string name="investimento_bruto">Valor bruto o investimento</string>
+    <string name="val_valor_bruto">R$ 1.088,69</string>
+    <string name="rendimento">Valor do rendimento</string>
+    <string name="val_valor_rendimento">R$ 88,69</string>
+    <string name="val_valor_ir_rendimento">R$ 15,32[17,50%]</string>
+    <string name="ir_rendimento">IR sobre o investimento</string>
+    <string name="investimento_liquido">Valor líquido do investimento</string>
+    <string name="val_valor_liquido">R$ 1.073,17</string>
+    <string name="data_resgate">Data de resgate</string>
+    <string name="val_data_resgate">27/10/2018</string>
+    <string name="dias_corridos">Dias corridos</string>
+    <string name="val_dias_corridos">365</string>
+    <string name="rendimento_mensal">Rendimento mensal</string>
+    <string name="val_rendimento_mensal">0,57%</string>
+    <string name="percentual_cdi">Percentual do CDI do investimento</string>
+    <string name="val_percentual_cdi">123%</string>
+    <string name="rentabilidade_anual">Rentabilidade anual</string>
+    <string name="val_rendimento_anual">7,09%</string>
+    <string name="rentabilidade_periodo">Rentabilidade no período</string>
+    <string name="val_rendimento_periodo">8,87%</string>
+    <string name="sumular_novamente">Simular novamente</string>
+    <string name="simular">Simular</string>
 </resources>

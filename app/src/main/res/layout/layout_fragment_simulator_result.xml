@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:id="@+id/scrollViewResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvResultado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/resultado"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:layout_margin="20dp"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvValResultado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvResultado"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="20dp"
+                android:textColor="@android:color/black"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textSize="28sp"
+                tools:text="@string/val_result"
+                />
+
+            <TextView
+                android:id="@+id/tvRendimentoTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rendimento_total"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:layout_margin="20dp"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@+id/tvValResultado"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvDesValAplicadoInicial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvRendimentoTotal"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="20dp"
+                android:gravity="start"
+                android:text="@string/aplicado_inicial"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:id="@+id/tvValAplicadoInicial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvRendimentoTotal"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="end"
+                tools:text="@string/val_valor_inicial"
+                android:layout_marginRight="20dp" />
+
+            <TextView
+                android:id="@+id/tvDesValBruto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvDesValAplicadoInicial"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:gravity="start"
+                android:text="@string/investimento_bruto"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:id="@+id/tvValBruto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvValAplicadoInicial"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="end"
+                tools:text="@string/val_valor_bruto"
+                android:layout_marginRight="20dp" />
+
+            <TextView
+                android:id="@+id/tvDesValRendimento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvDesValBruto"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:gravity="start"
+                android:text="@string/rendimento"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:id="@+id/tvValRendimento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvValBruto"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="end"
+                tools:text="@string/val_valor_rendimento"
+                android:layout_marginRight="20dp" />
+
+            <TextView
+                android:id="@+id/tvDesValIRRendimento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvDesValRendimento"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:gravity="start"
+                android:text="@string/ir_rendimento"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:id="@+id/tvValIRRendimento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvValRendimento"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="end"
+                tools:text="@string/val_valor_ir_rendimento"
+                android:layout_marginRight="20dp" />
+
+            <TextView
+                android:id="@+id/tvDesValLiquido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvDesValIRRendimento"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:gravity="start"
+                android:text="@string/investimento_liquido"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:id="@+id/tvValLiquido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvValIRRendimento"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="end"
+                tools:text="@string/val_valor_liquido"
+                android:layout_marginRight="20dp" />
+
+            <TextView
+                android:id="@+id/tvDesDataResgate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvDesValLiquido"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="90dp"
+                android:layout_marginStart="20dp"
+                android:gravity="start"
+                android:text="@string/data_resgate"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:id="@+id/tvValDataResgate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvValLiquido"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="90dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="end"
+                tools:text="@string/val_data_resgate"
+                android:layout_marginRight="20dp" />
+
+            <TextView
+                android:id="@+id/tvDesDiasCorridos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvDesDataResgate"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:gravity="start"
+                android:text="@string/dias_corridos"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:id="@+id/tvValDiasCorridos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvValDataResgate"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="end"
+                tools:text="@string/val_dias_corridos"
+                android:layout_marginRight="20dp" />
+
+            <TextView
+                android:id="@+id/tvDesRendimentoMensal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvDesDiasCorridos"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:gravity="start"
+                android:text="@string/rendimento_mensal"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:id="@+id/tvValRendimentoMensal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvValDiasCorridos"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="end"
+                tools:text="@string/val_rendimento_mensal"
+                android:layout_marginRight="20dp" />
+
+            <TextView
+                android:id="@+id/tvDesPercentualCDI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvDesRendimentoMensal"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:gravity="start"
+                android:text="@string/percentual_cdi"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:id="@+id/tvValPercentualCDI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvValRendimentoMensal"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="end"
+                tools:text="@string/val_percentual_cdi"
+                android:layout_marginRight="20dp" />
+
+            <TextView
+                android:id="@+id/tvDesRentabilidadeAnual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvDesPercentualCDI"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:gravity="start"
+                android:text="@string/rentabilidade_anual"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:id="@+id/tvValRentabilidadeAnual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvValPercentualCDI"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="end"
+                tools:text="@string/val_rendimento_anual"
+                android:layout_marginRight="20dp" />
+
+            <TextView
+                android:id="@+id/tvDesRentabilidadePeriodo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvDesRentabilidadeAnual"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:gravity="start"
+                android:text="@string/rentabilidade_periodo"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:id="@+id/tvValRentabilidadePeriodo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvValRentabilidadeAnual"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="end"
+                tools:text="@string/val_rendimento_periodo"
+                android:layout_marginRight="20dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnSumularNovamente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textAllCaps="false"
+        android:background="@drawable/easy_btn"
+        android:textColor="@android:color/white"
+        android:text="@string/sumular_novamente"
+        android:layout_margin="20dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
