@@ -12,6 +12,7 @@ import com.example.desafio_easynvest.model.DadosJson
 import com.example.desafio_easynvest.model.request.MyResquest
 import com.example.desafio_easynvest.screens.imputsimulator.viewmodel.ImputSimulatorViewModel
 import com.example.desafio_easynvest.utils.MaskEditUtil
+import com.example.desafio_easynvest.utils.Util
 import kotlinx.android.synthetic.main.layout_fragment_imput_simulator.*
 import org.koin.android.ext.android.inject
 
@@ -46,8 +47,10 @@ class FragmentInputSimulator : Fragment() {
     }
 
     private fun setUpRequest() : MyResquest {
-        return MyResquest(etValorAplicar.text.toString().toDouble(),
-            etPercentualCDI.text.toString().toInt(), etDataVencimento.text.toString())
+        return MyResquest(
+            Util.returnDoubleRealFromString(etValorAplicar.text.toString()),
+            Util.returnIntPorcentFromString(etPercentualCDI.text.toString()),
+            Util.returnFormatedDate(etDataVencimento.text.toString(),resources.getString(R.string.format_request), resources.getString(R.string.format_screen)))
     }
 
     private fun observeFields() {

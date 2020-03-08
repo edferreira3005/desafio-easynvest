@@ -32,7 +32,7 @@ object MaskEditUtil {
                             ediTxt.removeTextChangedListener(this)
 
                             val cleanString = s.toString().replace("[R$,.\u00A0]".toRegex(), "")
-                            val parsed = java.lang.Double.parseDouble(cleanString)
+                            val parsed = cleanString.toDouble()
                             formated = NumberFormat.getCurrencyInstance().format(parsed / 100)
                             current = formated
                             formated = formated.toString().replace("\u00A0", "")

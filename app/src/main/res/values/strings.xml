@@ -32,4 +32,7 @@
     <string name="val_rendimento_periodo">8,87%</string>
     <string name="sumular_novamente">Simular novamente</string>
     <string name="simular">Simular</string>
+    <string name="qual_percentual_cdi">Qual o percentual do CDI do investimento? *</string>
+    <string name="format_request">yyyy-MM-dd</string>
+    <string name="format_screen">dd/MM/yyyy</string>
 </resources>

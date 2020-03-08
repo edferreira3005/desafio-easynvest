@@ -16,7 +16,7 @@ class SimulatorService : KoinComponent{
     }
 
     private fun request(request : MyResquest) : HashMap<String, String> {
-        return Util.retornaHashJson("=",
+        return Util.returnHashJson("=",
             String.format("investedAmount=%s", request.investedAmount.toString()),
             String.format("index=%s", request.index),
             String.format("rate=%s", request.rate.toString()),
