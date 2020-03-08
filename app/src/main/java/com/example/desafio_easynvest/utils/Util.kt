@@ -1,14 +1,9 @@
 package com.example.desafio_easynvest.utils
 
-import android.content.Context
 import android.widget.EditText
-import com.example.desafio_easynvest.R
-import io.reactivex.annotations.Experimental
-import java.text.Format
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.zip.DataFormatException
 
 object Util {
     @Throws(Exception::class)
