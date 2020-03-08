@@ -9,6 +9,7 @@ import com.example.desafio_easynvest.R
 import com.example.desafio_easynvest.model.DadosJson
 import com.example.desafio_easynvest.utils.Util
 import kotlinx.android.synthetic.main.layout_fragment_simulator_result.*
+import java.util.*
 
 class FragmentSimulatorResult : Fragment() {
 
@@ -41,7 +42,8 @@ class FragmentSimulatorResult : Fragment() {
 
         if(responseSimulator.investmentParameter != null) {
             tvValAplicadoInicial.text = Util.returnReaisValue(responseSimulator.investmentParameter!!.investedAmount!!)
-            tvValDataResgate.text = responseSimulator.investmentParameter!!.maturityDate
+            tvValDataResgate.text = Util.returnFormatedDate(responseSimulator.investmentParameter!!.maturityDate!!,resources.getString(R.string.format_screen),
+                "yyyy-MM-dd'T'HH:mm:ss")
             tvValDiasCorridos.text = responseSimulator.investmentParameter!!.maturityTotalDays.toString()
             tvValPercentualCDI.text = Util.returnPorcentage(responseSimulator.investmentParameter!!.rate!!,true)
 
