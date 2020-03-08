@@ -13,6 +13,7 @@ import com.example.desafio_easynvest.model.request.MyResquest
 import com.example.desafio_easynvest.screens.imputsimulator.viewmodel.ImputSimulatorViewModel
 import com.example.desafio_easynvest.utils.MaskEditUtil
 import com.example.desafio_easynvest.utils.Util
+import com.example.desafio_easynvest.utils.exception.SimulatorException
 import kotlinx.android.synthetic.main.layout_fragment_imput_simulator.*
 import org.koin.android.ext.android.inject
 
@@ -71,7 +72,17 @@ class FragmentInputSimulator : Fragment() {
                 etDataVencimento.isEnabled = false
                 etPercentualCDI.isEnabled = false
                 etValorAplicar.isEnabled = false
+            }else {
+                btnSimular.visibility = View.VISIBLE
+                progress.visibility = View.GONE
+                etDataVencimento.isEnabled = true
+                etPercentualCDI.isEnabled = true
+                etValorAplicar.isEnabled = true
             }
+        })
+
+        viewModel.exception.observe(this, androidx.lifecycle.Observer { exception ->
+            SimulatorException(exception,context!!).showError()
         })
     }
 

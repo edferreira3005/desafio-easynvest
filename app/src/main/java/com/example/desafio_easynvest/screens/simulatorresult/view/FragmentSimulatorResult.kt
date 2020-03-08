@@ -1,6 +1,7 @@
 package com.example.desafio_easynvest.screens.simulatorresult.view
 
 import android.os.Bundle
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,6 @@ import com.example.desafio_easynvest.R
 import com.example.desafio_easynvest.model.DadosJson
 import com.example.desafio_easynvest.utils.Util
 import kotlinx.android.synthetic.main.layout_fragment_simulator_result.*
-import java.util.*
 
 class FragmentSimulatorResult : Fragment() {
 
@@ -50,7 +50,8 @@ class FragmentSimulatorResult : Fragment() {
         }
 
         tvValBruto.text = Util.returnReaisValue(responseSimulator.grossAmount!!)
-        tvRendimentoTotal.text = tvRendimentoTotal.text.toString().replace("__VALOR",Util.returnReaisValue(responseSimulator.grossAmountProfit!!))
+        tvRendimentoTotal.text = Html.fromHtml(tvRendimentoTotal.text.toString() //deprecado, mas o teste fala para min sdk 16
+            .replace("__VALOR","<font color='#01C8B4'>" + Util.returnReaisValue(responseSimulator.grossAmountProfit!!) + "</font>"))
         tvValResultado.text = Util.returnReaisValue(responseSimulator.grossAmount!!)
         tvValRendimento.text = Util.returnReaisValue(responseSimulator.grossAmountProfit!!)
         tvValIRRendimento.text = Util.returnReaisValue(responseSimulator.taxesAmount!!) + "[" + Util.returnPorcentage(responseSimulator.taxesRate!!,false) + "]"

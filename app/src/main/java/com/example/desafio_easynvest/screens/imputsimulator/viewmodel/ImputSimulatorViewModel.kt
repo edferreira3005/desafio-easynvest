@@ -16,6 +16,7 @@ class ImputSimulatorViewModel : ViewModel() {
     var dadosJson: MutableLiveData<DadosJson> = MutableLiveData()
     var loading : MutableLiveData<Boolean> = MutableLiveData()
     var isError : MutableLiveData<Boolean> = MutableLiveData()
+    var exception = MutableLiveData<Throwable>()
 
     fun simulate(simulatorRepository: SimulatorRepository) {
         this.simulatorRepository = simulatorRepository
@@ -39,6 +40,7 @@ class ImputSimulatorViewModel : ViewModel() {
                     override fun onError(e: Throwable) {
                         loading.value = false
                         isError.value = true
+                        exception.value = e
                     }
                 })
         )
