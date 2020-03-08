@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.desafio_easynvest.R
 import com.example.desafio_easynvest.api.repository.SimulatorRepository
-import com.example.desafio_easynvest.model.ResponseSimulator
+import com.example.desafio_easynvest.model.DadosJson
 import com.example.desafio_easynvest.model.request.MyResquest
 import com.example.desafio_easynvest.screens.imputsimulator.viewmodel.ImputSimulatorViewModel
 import kotlinx.android.synthetic.main.layout_fragment_imput_simulator.*
@@ -37,7 +37,7 @@ class FragmentInputSimulator : Fragment() {
     }
 
     interface OnClickSimulate {
-        fun onClickSimulate(responseSimulator: ResponseSimulator)
+        fun onClickSimulate(responseSimulator: DadosJson)
     }
 
     private fun setUpRequest() : MyResquest {
@@ -48,10 +48,15 @@ class FragmentInputSimulator : Fragment() {
     private fun observeFields() {
         viewModel.dadosJson.observe(this, androidx.lifecycle.Observer { dadosJson ->
             if (dadosJson != null) {
-                if(dadosJson.responseSimulator != null) {
-                    val onClick = activity as OnClickSimulate
-                    onClick.onClickSimulate(dadosJson.responseSimulator!!)
-                }
+                val onClick = activity as OnClickSimulate
+                onClick.onClickSimulate(dadosJson)
+            }
+        })
+
+        viewModel.loading.observe(this, androidx.lifecycle.Observer { loading ->
+            if (loading) {
+                btnSimular.text = ""
+                progress.bringToFront()
             }
         })
     }

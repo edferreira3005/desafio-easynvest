@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.desafio_easynvest.R
-import com.example.desafio_easynvest.model.ResponseSimulator
+import com.example.desafio_easynvest.model.DadosJson
 import kotlinx.android.synthetic.main.layout_fragment_simulator_result.*
 
 class FragmentSimulatorResult : Fragment() {
@@ -19,9 +19,9 @@ class FragmentSimulatorResult : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var responseSimulator: ResponseSimulator? = null
+        var responseSimulator: DadosJson? = null
         if(arguments != null)
-            responseSimulator = arguments!!.getSerializable("response") as ResponseSimulator?
+            responseSimulator = arguments!!.getSerializable("response") as DadosJson?
 
         if(responseSimulator != null)
             setFields(responseSimulator)
@@ -36,7 +36,7 @@ class FragmentSimulatorResult : Fragment() {
         fun onClickSimulateAgain()
     }
 
-    private fun setFields(responseSimulator: ResponseSimulator) {
+    private fun setFields(responseSimulator: DadosJson) {
 
         if(responseSimulator.investmentParameter != null) {
             tvValAplicadoInicial.text = responseSimulator.investmentParameter!!.investedAmount.toString()

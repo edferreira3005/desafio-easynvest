@@ -5,11 +5,11 @@ import java.io.Serializable
 import kotlin.properties.Delegates
 
 class MyResquest : Serializable {
-    var investedAmount by Delegates.notNull<Double>()
+    var investedAmount : Double? = null
     val index = Constants.INDEX
-    var rate by Delegates.notNull<Int>()
+    var rate: Int? = null
     val isTaxFree = Constants.IS_TAX_FREE
-    var maturityDate by Delegates.notNull<String>()
+    var maturityDate : String? = null
 
     constructor(investedAmount : Double,rate : Int, maturityDate : String ) {
         this.investedAmount = investedAmount

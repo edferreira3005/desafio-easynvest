@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import com.example.desafio_easynvest.R
-import com.example.desafio_easynvest.model.ResponseSimulator
+import com.example.desafio_easynvest.model.DadosJson
 import com.example.desafio_easynvest.screens.imputsimulator.FragmentInputSimulator
 import com.example.desafio_easynvest.screens.simulatorresult.FragmentSimulatorResult
 import com.example.desafio_easynvest.utils.Constants
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity(), FragmentSimulatorResult.OnClickSimulat
             .commit()
     }
 
-    private fun openSimulatorResult(responseSimulator: ResponseSimulator) {
+    private fun openSimulatorResult(responseSimulator: DadosJson) {
         val bundle = Bundle()
         val fragment = FragmentSimulatorResult()
         removeFragments()
@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity(), FragmentSimulatorResult.OnClickSimulat
         openImputSimulator()
     }
 
-    override fun onClickSimulate(responseSimulator: ResponseSimulator) {
+    override fun onClickSimulate(responseSimulator: DadosJson) {
         openSimulatorResult(responseSimulator)
     }
 }

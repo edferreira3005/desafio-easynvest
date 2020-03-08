@@ -7,6 +7,6 @@ import retrofit2.http.QueryMap
 import java.util.HashMap
 
 interface SimulatorApi {
-    @GET("/v1/public/characters")
+    @GET("/calculator/simulate")
     fun getSimulation(@QueryMap data: HashMap<String, String>): Single<DadosJson>
 }

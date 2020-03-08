@@ -14,6 +14,8 @@ class ImputSimulatorViewModel : ViewModel() {
     private var simulatorRepository : SimulatorRepository? = null
     private val disposable = CompositeDisposable()
     var dadosJson: MutableLiveData<DadosJson> = MutableLiveData()
+    var loading : MutableLiveData<Boolean> = MutableLiveData()
+    var isError : MutableLiveData<Boolean> = MutableLiveData()
 
     fun simulate(simulatorRepository: SimulatorRepository) {
         this.simulatorRepository = simulatorRepository
@@ -22,6 +24,9 @@ class ImputSimulatorViewModel : ViewModel() {
     }
 
     private fun simulateValues() {
+        loading.value = true
+        isError.value = false
+
         disposable.add(
             simulatorRepository!!.getInfo()
                 .subscribeOn(Schedulers.newThread())
@@ -29,9 +34,11 @@ class ImputSimulatorViewModel : ViewModel() {
                 .subscribeWith(object : DisposableSingleObserver<DadosJson>() {
                     override fun onSuccess(dados: DadosJson) {
                         dadosJson.value = dados
+                        loading.value = false
                     }
                     override fun onError(e: Throwable) {
-
+                        loading.value = false
+                        isError.value = true
                     }
                 })
         )
