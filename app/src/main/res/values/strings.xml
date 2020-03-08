@@ -35,4 +35,5 @@
     <string name="qual_percentual_cdi">Qual o percentual do CDI do investimento? *</string>
     <string name="format_request">yyyy-MM-dd</string>
     <string name="format_screen">dd/MM/yyyy</string>
+    <string name="erro_consulta">Erro ao consultar dados</string>
 </resources>

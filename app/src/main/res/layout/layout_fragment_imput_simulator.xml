@@ -5,6 +5,11 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable android:name="viewModel"
+            android:type="com.example.desafio_easynvest.screens.imputsimulator.viewmodel.ImputSimulatorViewModel"/>
+    </data>
+
     <ScrollView
         android:id="@+id/scrollViewImput"
         android:layout_width="match_parent"
