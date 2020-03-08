@@ -10,7 +10,7 @@
     <string name="rendimento_total">Rendimento total de __VALOR</string>
     <string name="aplicado_inicial">Valor aplicado inicialmente</string>
     <string name="val_valor_inicial">R$ 1.000,00</string>
-    <string name="investimento_bruto">Valor bruto o investimento</string>
+    <string name="investimento_bruto">Valor bruto do investimento</string>
     <string name="val_valor_bruto">R$ 1.088,69</string>
     <string name="rendimento">Valor do rendimento</string>
     <string name="val_valor_rendimento">R$ 88,69</string>
