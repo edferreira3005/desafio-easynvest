@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.view.MenuItem
 import com.example.desafio_easynvest.R
 import com.example.desafio_easynvest.model.DadosJson
-import com.example.desafio_easynvest.screens.imputsimulator.FragmentInputSimulator
-import com.example.desafio_easynvest.screens.simulatorresult.FragmentSimulatorResult
+import com.example.desafio_easynvest.screens.imputsimulator.view.FragmentInputSimulator
+import com.example.desafio_easynvest.screens.simulatorresult.view.FragmentSimulatorResult
 import com.example.desafio_easynvest.utils.Constants
 
 class MainActivity : AppCompatActivity(), FragmentSimulatorResult.OnClickSimulateAgain, FragmentInputSimulator.OnClickSimulate {
@@ -20,7 +20,8 @@ class MainActivity : AppCompatActivity(), FragmentSimulatorResult.OnClickSimulat
 
         supportFragmentManager
             .beginTransaction()
-            .add(R.id.frame, FragmentInputSimulator(), Constants.TAG_IMPUT_SIMULATOR)
+            .add(R.id.frame,
+                FragmentInputSimulator(), Constants.TAG_IMPUT_SIMULATOR)
             .disallowAddToBackStack()
             .commit()
     }
@@ -43,7 +44,8 @@ class MainActivity : AppCompatActivity(), FragmentSimulatorResult.OnClickSimulat
 
         supportFragmentManager
             .beginTransaction()
-            .add(R.id.frame, FragmentInputSimulator(), Constants.TAG_IMPUT_SIMULATOR)
+            .add(R.id.frame,
+                FragmentInputSimulator(), Constants.TAG_IMPUT_SIMULATOR)
             .disallowAddToBackStack()
             .setCustomAnimations(R.anim.slide_to_left,R.anim.slide_from_right)
             .commit()
@@ -51,7 +53,8 @@ class MainActivity : AppCompatActivity(), FragmentSimulatorResult.OnClickSimulat
 
     private fun openSimulatorResult(responseSimulator: DadosJson) {
         val bundle = Bundle()
-        val fragment = FragmentSimulatorResult()
+        val fragment =
+            FragmentSimulatorResult()
         removeFragments()
 
         bundle.putSerializable("response",responseSimulator)

@@ -1,6 +1,7 @@
 package com.example.desafio_easynvest.utils
 
 import java.text.Format
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -30,12 +31,24 @@ object Util {
 
     fun returnDoubleRealFromString(value : String) : Double {
         var newValue = value.replace("[R$.\u00A0]".toRegex(), "")
-        newValue = newValue.replace(",", ".")
+        newValue = newValue.replace(",", ".").replace(" ", "")
 
         return newValue.toDouble()
     }
 
     fun returnIntPorcentFromString(value : String) : Int {
         return value.replace("[%]".toRegex(), "").toInt()
+    }
+
+    fun returnReaisValue(value : Double) : String {
+        val newValue = NumberFormat.getCurrencyInstance().format(value)
+        return newValue.replace("R$", "R$ ")
+    }
+
+    fun returnPorcentage(value : Double, integer : Boolean) : String {
+        if(integer)
+            return value.toInt().toString() + "%"
+        else
+            return String.format("%,.2f", value) + "%"
     }
 }

@@ -1,4 +1,4 @@
-package com.example.desafio_easynvest.screens.imputsimulator
+package com.example.desafio_easynvest.screens.imputsimulator.view
 
 import android.os.Bundle
 import android.view.LayoutInflater

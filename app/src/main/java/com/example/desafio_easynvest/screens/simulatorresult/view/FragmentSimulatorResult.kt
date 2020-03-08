@@ -1,4 +1,4 @@
-package com.example.desafio_easynvest.screens.simulatorresult
+package com.example.desafio_easynvest.screens.simulatorresult.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.desafio_easynvest.R
 import com.example.desafio_easynvest.model.DadosJson
+import com.example.desafio_easynvest.utils.Util
 import kotlinx.android.synthetic.main.layout_fragment_simulator_result.*
 
 class FragmentSimulatorResult : Fragment() {
@@ -39,21 +40,21 @@ class FragmentSimulatorResult : Fragment() {
     private fun setFields(responseSimulator: DadosJson) {
 
         if(responseSimulator.investmentParameter != null) {
-            tvValAplicadoInicial.text = responseSimulator.investmentParameter!!.investedAmount.toString()
+            tvValAplicadoInicial.text = Util.returnReaisValue(responseSimulator.investmentParameter!!.investedAmount!!)
             tvValDataResgate.text = responseSimulator.investmentParameter!!.maturityDate
             tvValDiasCorridos.text = responseSimulator.investmentParameter!!.maturityTotalDays.toString()
-            tvValPercentualCDI.text = responseSimulator.investmentParameter!!.rate.toString()
+            tvValPercentualCDI.text = Util.returnPorcentage(responseSimulator.investmentParameter!!.rate!!,true)
 
         }
 
-        tvValBruto.text = responseSimulator.grossAmount.toString()
-        tvRendimentoTotal.text = tvRendimentoTotal.text.toString().replace("__VALOR",responseSimulator.grossAmountProfit.toString())
-        tvValResultado.text = responseSimulator.grossAmount.toString()
-        tvValRendimento.text = responseSimulator.grossAmountProfit.toString()
-        tvValIRRendimento.text = responseSimulator.taxesAmount.toString() + "[" + responseSimulator.taxesRate.toString() + "]"
-        tvValLiquido.text = responseSimulator.netAmount.toString()
-        tvValRendimentoMensal.text = responseSimulator.monthlyGrossRateProfit.toString()
-        tvValRentabilidadeAnual.text = responseSimulator.monthlyGrossRateProfit.toString()
-        tvValRentabilidadePeriodo.text = responseSimulator.rateProfit.toString()
+        tvValBruto.text = Util.returnReaisValue(responseSimulator.grossAmount!!)
+        tvRendimentoTotal.text = tvRendimentoTotal.text.toString().replace("__VALOR",Util.returnReaisValue(responseSimulator.grossAmountProfit!!))
+        tvValResultado.text = Util.returnReaisValue(responseSimulator.grossAmount!!)
+        tvValRendimento.text = Util.returnReaisValue(responseSimulator.grossAmountProfit!!)
+        tvValIRRendimento.text = Util.returnReaisValue(responseSimulator.taxesAmount!!) + "[" + Util.returnPorcentage(responseSimulator.taxesRate!!,false) + "]"
+        tvValLiquido.text = Util.returnReaisValue(responseSimulator.netAmount!!)
+        tvValRendimentoMensal.text = Util.returnPorcentage(responseSimulator.monthlyGrossRateProfit!!,false)
+        tvValRentabilidadeAnual.text = Util.returnPorcentage(responseSimulator.monthlyGrossRateProfit!!,false)
+        tvValRentabilidadePeriodo.text = Util.returnPorcentage(responseSimulator.rateProfit!!,false)
     }
 }
