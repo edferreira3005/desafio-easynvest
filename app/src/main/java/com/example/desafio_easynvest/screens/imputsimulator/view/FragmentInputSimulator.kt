@@ -1,4 +1,4 @@
-package com.example.desafio_easynvest.screens.imputsimulator
+package com.example.desafio_easynvest.screens.imputsimulator.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -30,13 +30,16 @@ class FragmentInputSimulator : Fragment() {
 
         viewModel = ViewModelProviders.of(this).get<ImputSimulatorViewModel>(ImputSimulatorViewModel::class.java)
 
-        etDataVencimento.addTextChangedListener(MaskEditUtil.mask(etDataVencimento, MaskEditUtil.FORMAT_DATE,false))
-        etValorAplicar.addTextChangedListener(MaskEditUtil.mask(etValorAplicar,"",true))
-        etPercentualCDI.addTextChangedListener(MaskEditUtil.mask(etPercentualCDI,MaskEditUtil.FORMAT_PORCENT,false))
+        etValorAplicar.requestFocus()
+        etDataVencimento.addTextChangedListener(MaskEditUtil.mask(etDataVencimento, MaskEditUtil.FORMAT_DATE,false, etValorAplicar, etPercentualCDI, btnSimular))
+        etValorAplicar.addTextChangedListener(MaskEditUtil.mask(etValorAplicar,"",true,etDataVencimento, etPercentualCDI, btnSimular))
+        etPercentualCDI.addTextChangedListener(MaskEditUtil.mask(etPercentualCDI,MaskEditUtil.FORMAT_PORCENT,false,etValorAplicar, etDataVencimento, btnSimular))
 
         btnSimular.setOnClickListener {
-            simulatorRepository.myResquest = setUpRequest()
-            viewModel.simulate(simulatorRepository)
+            if(validateFields()) {
+                simulatorRepository.myResquest = setUpRequest()
+                viewModel.simulate(simulatorRepository)
+            }
         }
 
         observeFields()
@@ -63,9 +66,27 @@ class FragmentInputSimulator : Fragment() {
 
         viewModel.loading.observe(this, androidx.lifecycle.Observer { loading ->
             if (loading) {
-                btnSimular.text = ""
-                progress.bringToFront()
+                btnSimular.visibility = View.INVISIBLE
+                progress.visibility = View.VISIBLE
+                etDataVencimento.isEnabled = false
+                etPercentualCDI.isEnabled = false
+                etValorAplicar.isEnabled = false
             }
         })
+    }
+
+    private fun validateFields() : Boolean {
+        var validated = true
+
+        if(!Util.validateNumberValue(etValorAplicar, true, "",0))
+            validated = false
+
+        if(!Util.validateNumberValue(etPercentualCDI, false, "%", resources.getInteger(R.integer.min_cdi)))
+            validated = false
+
+        if(!Util.validateDateValue(etDataVencimento))
+            validated = false
+
+        return validated
     }
 }

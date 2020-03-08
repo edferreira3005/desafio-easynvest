@@ -2,6 +2,7 @@ package com.example.desafio_easynvest.utils
 
 import android.text.Editable
 import android.text.TextWatcher
+import android.widget.Button
 import android.widget.EditText
 import java.text.NumberFormat
 
@@ -12,7 +13,7 @@ object MaskEditUtil {
     private var formated: String? = null
     private var current: String? = ""
 
-    fun mask(ediTxt: EditText, mask: String, real : Boolean): TextWatcher {
+    fun mask(ediTxt: EditText, mask: String, real : Boolean, secontadyEditTxt : EditText, terciaryEditText : EditText, btnToEnable : Button) : TextWatcher {
 
         maskEdit = ""
 
@@ -71,6 +72,8 @@ object MaskEditUtil {
                     ediTxt.setText(mascara)
                     ediTxt.setSelection(mascara.length)
                 }
+
+                btnToEnable.isEnabled = ediTxt.text.isNotEmpty() && secontadyEditTxt.text.isNotEmpty() && terciaryEditText.text.isNotEmpty()
             }
         }
     }
