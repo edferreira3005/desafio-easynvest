@@ -54,4 +54,21 @@ object Util {
         else
             String.format("%,.2f", value) + "%"
     }
+
+    fun validateNumberValue(editText: EditText, reais : Boolean, replace : String, rate : Int) : Boolean {
+        return if(reais) {
+            if (returnDoubleRealFromString(editText.text.toString()) <= 0) {
+                editText.error = "Valor deve ser maior que zero!"
+                editText.requestFocus()
+                false
+            } else true
+        }else{
+            val textValue = editText.text.toString().replace(replace,"")
+            if(returnIntPorcentFromString(textValue) <= rate) {
+                editText.error = "Valor deve ser superior a $rate"
+                editText.requestFocus()
+                false
+            }else true
+        }
+    }
 }

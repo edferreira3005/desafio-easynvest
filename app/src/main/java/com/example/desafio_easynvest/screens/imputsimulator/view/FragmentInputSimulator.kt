@@ -30,13 +30,16 @@ class FragmentInputSimulator : Fragment() {
 
         viewModel = ViewModelProviders.of(this).get<ImputSimulatorViewModel>(ImputSimulatorViewModel::class.java)
 
+        etValorAplicar.requestFocus()
         etDataVencimento.addTextChangedListener(MaskEditUtil.mask(etDataVencimento, MaskEditUtil.FORMAT_DATE,false, etValorAplicar, etPercentualCDI, btnSimular))
         etValorAplicar.addTextChangedListener(MaskEditUtil.mask(etValorAplicar,"",true,etDataVencimento, etPercentualCDI, btnSimular))
         etPercentualCDI.addTextChangedListener(MaskEditUtil.mask(etPercentualCDI,MaskEditUtil.FORMAT_PORCENT,false,etValorAplicar, etDataVencimento, btnSimular))
 
         btnSimular.setOnClickListener {
-            simulatorRepository.myResquest = setUpRequest()
-            viewModel.simulate(simulatorRepository)
+            if(validateFields()) {
+                simulatorRepository.myResquest = setUpRequest()
+                viewModel.simulate(simulatorRepository)
+            }
         }
 
         observeFields()
@@ -67,5 +70,17 @@ class FragmentInputSimulator : Fragment() {
                 progress.bringToFront()
             }
         })
+    }
+
+    private fun validateFields() : Boolean {
+        var validated = true
+
+        if(!Util.validateNumberValue(etValorAplicar, true, "",0))
+            validated = false
+
+        if(!Util.validateNumberValue(etPercentualCDI, false, "%", resources.getInteger(R.integer.min_cdi)))
+            validated = false
+
+        return validated
     }
 }
