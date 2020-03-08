@@ -66,8 +66,11 @@ class FragmentInputSimulator : Fragment() {
 
         viewModel.loading.observe(this, androidx.lifecycle.Observer { loading ->
             if (loading) {
-                btnSimular.text = ""
-                progress.bringToFront()
+                btnSimular.visibility = View.INVISIBLE
+                progress.visibility = View.VISIBLE
+                etDataVencimento.isEnabled = false
+                etPercentualCDI.isEnabled = false
+                etValorAplicar.isEnabled = false
             }
         })
     }
@@ -79,6 +82,9 @@ class FragmentInputSimulator : Fragment() {
             validated = false
 
         if(!Util.validateNumberValue(etPercentualCDI, false, "%", resources.getInteger(R.integer.min_cdi)))
+            validated = false
+
+        if(!Util.validateDateValue(etDataVencimento))
             validated = false
 
         return validated

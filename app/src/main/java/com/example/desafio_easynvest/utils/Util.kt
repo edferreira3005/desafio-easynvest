@@ -3,10 +3,12 @@ package com.example.desafio_easynvest.utils
 import android.content.Context
 import android.widget.EditText
 import com.example.desafio_easynvest.R
+import io.reactivex.annotations.Experimental
 import java.text.Format
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.zip.DataFormatException
 
 object Util {
     @Throws(Exception::class)
@@ -25,11 +27,15 @@ object Util {
     }
 
     fun returnFormatedDate(date : String, format : String, oldFormat : String) : String {
-        val oldFormater = SimpleDateFormat(oldFormat, Locale.ENGLISH)
-        val formater = SimpleDateFormat(format,Locale.ENGLISH)
-        val oldDate = oldFormater.parse(date)
+        return try {
+            val oldFormater = SimpleDateFormat(oldFormat, Locale.ENGLISH)
+            val formater = SimpleDateFormat(format, Locale.ENGLISH)
+            val oldDate = oldFormater.parse(date)
 
-        return formater.format(oldDate!!).toString()
+            formater.format(oldDate!!).toString()
+        }catch (e : Throwable){
+            ""
+        }
     }
 
     fun returnDoubleRealFromString(value : String) : Double {
@@ -70,5 +76,13 @@ object Util {
                 false
             }else true
         }
+    }
+
+    fun validateDateValue(editText: EditText) : Boolean {
+        return if(returnFormatedDate(editText.text.toString(),"yyyy-MM-dd","dd/MM/yyyy").isEmpty()) {
+            editText.error = "Formato de dada inválida"
+            editText.requestFocus()
+            false
+        }else true
     }
 }
