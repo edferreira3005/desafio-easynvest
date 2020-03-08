@@ -30,9 +30,9 @@ class FragmentInputSimulator : Fragment() {
 
         viewModel = ViewModelProviders.of(this).get<ImputSimulatorViewModel>(ImputSimulatorViewModel::class.java)
 
-        etDataVencimento.addTextChangedListener(MaskEditUtil.mask(etDataVencimento, MaskEditUtil.FORMAT_DATE,false))
-        etValorAplicar.addTextChangedListener(MaskEditUtil.mask(etValorAplicar,"",true))
-        etPercentualCDI.addTextChangedListener(MaskEditUtil.mask(etPercentualCDI,MaskEditUtil.FORMAT_PORCENT,false))
+        etDataVencimento.addTextChangedListener(MaskEditUtil.mask(etDataVencimento, MaskEditUtil.FORMAT_DATE,false, etValorAplicar, etPercentualCDI, btnSimular))
+        etValorAplicar.addTextChangedListener(MaskEditUtil.mask(etValorAplicar,"",true,etDataVencimento, etPercentualCDI, btnSimular))
+        etPercentualCDI.addTextChangedListener(MaskEditUtil.mask(etPercentualCDI,MaskEditUtil.FORMAT_PORCENT,false,etValorAplicar, etDataVencimento, btnSimular))
 
         btnSimular.setOnClickListener {
             simulatorRepository.myResquest = setUpRequest()

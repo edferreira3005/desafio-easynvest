@@ -1,5 +1,8 @@
 package com.example.desafio_easynvest.utils
 
+import android.content.Context
+import android.widget.EditText
+import com.example.desafio_easynvest.R
 import java.text.Format
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
@@ -46,9 +49,9 @@ object Util {
     }
 
     fun returnPorcentage(value : Double, integer : Boolean) : String {
-        if(integer)
-            return value.toInt().toString() + "%"
+        return if(integer)
+            value.toInt().toString() + "%"
         else
-            return String.format("%,.2f", value) + "%"
+            String.format("%,.2f", value) + "%"
     }
 }
