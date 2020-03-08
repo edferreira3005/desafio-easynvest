@@ -7,7 +7,7 @@
     <string name="porcent">100%</string>
     <string name="resultado">Resultado da Simulacao</string>
     <string name="val_result">R$ 1.088,69</string>
-    <string name="rendimento_total">Rendimento total de <font color="#FFFFFF">R$ 89,00</font></string>
+    <string name="rendimento_total">Rendimento total de <font color="#01C8B4">__VALOR</font></string>
     <string name="aplicado_inicial">Valor aplicado inicialmente</string>
     <string name="val_valor_inicial">R$ 1.000,00</string>
     <string name="investimento_bruto">Valor bruto o investimento</string>
@@ -32,4 +32,7 @@
     <string name="val_rendimento_periodo">8,87%</string>
     <string name="sumular_novamente">Simular novamente</string>
     <string name="simular">Simular</string>
+    <string name="qual_percentual_cdi">Qual o percentual do CDI do investimento? *</string>
+    <string name="format_request">yyyy-MM-dd</string>
+    <string name="format_screen">dd/MM/yyyy</string>
 </resources>
