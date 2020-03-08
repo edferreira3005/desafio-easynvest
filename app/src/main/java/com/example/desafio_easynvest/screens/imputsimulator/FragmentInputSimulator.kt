@@ -11,6 +11,7 @@ import com.example.desafio_easynvest.api.repository.SimulatorRepository
 import com.example.desafio_easynvest.model.DadosJson
 import com.example.desafio_easynvest.model.request.MyResquest
 import com.example.desafio_easynvest.screens.imputsimulator.viewmodel.ImputSimulatorViewModel
+import com.example.desafio_easynvest.utils.MaskEditUtil
 import kotlinx.android.synthetic.main.layout_fragment_imput_simulator.*
 import org.koin.android.ext.android.inject
 
@@ -27,6 +28,10 @@ class FragmentInputSimulator : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProviders.of(this).get<ImputSimulatorViewModel>(ImputSimulatorViewModel::class.java)
+
+        etDataVencimento.addTextChangedListener(MaskEditUtil.mask(etDataVencimento, MaskEditUtil.FORMAT_DATE,false))
+        etValorAplicar.addTextChangedListener(MaskEditUtil.mask(etValorAplicar,"",true))
+        etPercentualCDI.addTextChangedListener(MaskEditUtil.mask(etPercentualCDI,MaskEditUtil.FORMAT_PORCENT,false))
 
         btnSimular.setOnClickListener {
             simulatorRepository.myResquest = setUpRequest()
