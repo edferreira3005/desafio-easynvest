@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">desafio-easynvest</string>
-    <string name="quando_aplicar">Quanto voce gostaria de aplicar? *</string>
+    <string name="app_name">Desafio Easynvest</string>
+    <string name="quando_aplicar">Quanto você gostaria de aplicar? *</string>
     <string name="rs">R$</string>
     <string name="data_vencimento">Qual a data de vencimento do investimento? *</string>
     <string name="data">dia/mes/ano</string>
     <string name="porcent">100%</string>
-    <string name="resultado">Resultado da Simulacao</string>
+    <string name="resultado">Resultado da Simulação</string>
     <string name="val_result">R$ 1.088,69</string>
     <string name="rendimento_total">Rendimento total de __VALOR</string>
     <string name="aplicado_inicial">Valor aplicado inicialmente</string>
